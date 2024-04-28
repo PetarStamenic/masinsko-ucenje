@@ -1,0 +1,21 @@
+a) [5p] Koja je razlika između k-fold, leave one out i random subsampling cross validation algoritama? 
+
+Kod k-fold algoritma delimo podatke na k jednakih delova i treniramo model na svim sem na k-tom delu i onda ga testiramo na k-tom delu, dok nismo tako prošli kroz sve delove.
+Kod leave one out algoritma delimo podatke na k=n delova, gde je n broj podataka, i treniramo na svim podacima sem na jednom na kom na kraju testiramo. Ovaj metod je veoma skup zato što treniramo model n puta, pa se koristi samo na malim skupovima podataka.
+Kod random subsampling podaci su nasumično podeljeni na trening i testing setove, i model se trenira na trening setu i testira na testing setu. Ovaj metod se ponavlja nekoliko puta i kao vrednost uzimamo prosek.
+Glavna razlika u ovim algoritmima je način na koji se podaci dele (u prva dva se dele struktuirano, a u trećem nasumično) i koliko puta se model trenira.
+
+
+b) [5p] Objasniti razliku između Gaussian, Multinomial i Bernouli Naive Bayes metoda. 
+
+Ovo su tri vrste Naive Bayes algoritma koji se obično koristi za probleme klasifikacije. Glavna razlika je u vrsti podataka sa kojima rade kao i u raspodeli koju pretpostavljaju.
+Gaussian NB se koristi za kontinuirane podatke gde se pretpostavlja Gausova raspodela (normalna raspodela), tako što izračunamo srednju vrednost i varijansu za svaku klasu. Funkcija raspodele se koristi za izračunavanje verovatnoće nove tačke.
+Multinomial NB se koristi za diskretne podatke kao sto su tekstualni podaci gde je učestalost reči feature. U ovoj metodi verovatnoća osobine u klasi se modeluje kao multinomijalna raspodela a verovatnoća podatka se računa kao proizvod verovatnoća svih featura u klasi.
+Bernouli NB se takođe koristi za diskretne podatke ali se pretpostavlja da je feature binarni (može imati vrednost 0 ili 1) a ne sama učestalost pojavljivanja. U ovoj metodi modelujemo prema Bernulijevoj raspodeli a verovatnoća se računa isto kao i u prethodnoj.
+Glavna razlika je to što se u Gaussian NB koriste kontinualni podaci, Multinomial NB koristi diskretne podatke sa više mogućih vrednosti dok Bernouli NB koristi diskretne podatke sa samo dve moguće vrednosti.
+
+
+c)[5p] Objasniti pojam “linearna separabilnost”? Da li podaci grupisani u više od 2 klastera mogu biti linearno separabilni?
+
+Linearna separabilnost se odnosi na sposobnost linearnog klasifikatora da odvoji tačke sa podacima iz različitih klasa pravom linijom ili pomoću hiperravni, to jest ako se tačke sa podacima iz različitih klasa mogu razdvojiti linearnom granicom onda su podaci linearno separabilni.
+Tehnički podaci grupisani u više od dva klastera mogu biti linearno separabilni, ali je verovatnoća veoma mala. U tom slučaju je bolje koristiti složenije modele kao što su nelinearni klasifikatori ili klastering algoritme koji mogu da obuhvate nelinearne odnose između  tačaka.
